@@ -89,7 +89,7 @@ app.post("/api/items/:id/upload", upload.single("file"), async (req, res) => {
       data: req.file.buffer,
     });
 
-    console.log("✅ File uploaded:", uploadResponse.data.fileName);
+    console.log(" File uploaded:", uploadResponse.data.fileName);
 
     res.json({
       message: "File uploaded successfully",
