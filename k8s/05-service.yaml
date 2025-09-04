@@ -1,0 +1,17 @@
+﻿apiVersion: v1
+kind: Service
+metadata:
+  name: my-api-service
+  namespace: my-api
+  labels:
+    app: my-api
+spec:
+  selector:
+    app: my-api
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
+      name: http
+  type: ClusterIP
+

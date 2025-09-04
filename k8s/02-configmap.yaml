@@ -1,0 +1,10 @@
+﻿apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: my-api-config
+  namespace: my-api
+data:
+  NODE_ENV: "production"
+  PORT: "3000"
+  B2_BUCKET_NAME: "my-api-files"
+  API_VERSION: "v1.0.0"
