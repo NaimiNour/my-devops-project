@@ -1,4 +1,4 @@
-﻿apiVersion: apps/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: my-api-deployment
@@ -21,69 +21,68 @@ spec:
         app: my-api
     spec:
       containers:
-      - name: my-api
-        image: yourusername/my-api:latest  # Replace with your Docker Hub username
-        ports:
-        - containerPort: 3000
-          name: http
-        env:
-        - name: NODE_ENV
-          valueFrom:
-            configMapKeyRef:
-              name: my-api-config
-              key: NODE_ENV
-        - name: PORT
-          valueFrom:
-            configMapKeyRef:
-              name: my-api-config
-              key: PORT
-        - name: B2_BUCKET_NAME
-          valueFrom:
-            configMapKeyRef:
-              name: my-api-config
-              key: B2_BUCKET_NAME
-        - name: B2_APP_KEY_ID
-          valueFrom:
-            secretKeyRef:
-              name: my-api-secrets
-              key: B2_APP_KEY_ID
-        - name: B2_APP_KEY
-          valueFrom:
-            secretKeyRef:
-              name: my-api-secrets
-              key: B2_APP_KEY
-        - name: B2_BUCKET_ID
-          valueFrom:
-            secretKeyRef:
-              name: my-api-secrets
-              key: B2_BUCKET_ID
-        resources:
-          requests:
-            memory: "128Mi"
-            cpu: "250m"
-          limits:
-            memory: "256Mi"
-            cpu: "500m"
-        livenessProbe:
-          httpGet:
-            path: /health
-            port: 3000
-          initialDelaySeconds: 30
-          periodSeconds: 10
-        readinessProbe:
-          httpGet:
-            path: /health
-            port: 3000
-          initialDelaySeconds: 5
-          periodSeconds: 5
-        volumeMounts:
-        - name: temp-storage
-          mountPath: /app/uploads
+        - name: my-api
+          image: khaoula16/my-api:latest # Replace with your Docker Hub username
+          ports:
+            - containerPort: 3000
+              name: http
+          env:
+            - name: NODE_ENV
+              valueFrom:
+                configMapKeyRef:
+                  name: my-api-config
+                  key: NODE_ENV
+            - name: PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: my-api-config
+                  key: PORT
+            - name: B2_BUCKET_NAME
+              valueFrom:
+                configMapKeyRef:
+                  name: my-api-config
+                  key: B2_BUCKET_NAME
+            - name: B2_APP_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: my-api-secrets
+                  key: B2_APP_KEY_ID
+            - name: B2_APP_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: my-api-secrets
+                  key: B2_APP_KEY
+            - name: B2_BUCKET_ID
+              valueFrom:
+                secretKeyRef:
+                  name: my-api-secrets
+                  key: B2_BUCKET_ID
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "250m"
+            limits:
+              memory: "256Mi"
+              cpu: "500m"
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 3000
+            initialDelaySeconds: 30
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 3000
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          volumeMounts:
+            - name: temp-storage
+              mountPath: /app/uploads
       volumes:
-      - name: temp-storage
-        emptyDir: {}
+        - name: temp-storage
+          emptyDir: {}
       securityContext:
         runAsNonRoot: true
         runAsUser: 1001
         fsGroup: 1001
-
