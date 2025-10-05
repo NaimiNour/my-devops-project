@@ -2,11 +2,45 @@ const express = require("express");
 require("dotenv").config();
 const B2 = require("backblaze-b2");
 const multer = require("multer");
+const logger = require("./logger");
+const metrics = require("./metrics");
 
 const app = express();
 app.use(express.json());
 
 const port = process.env.PORT || 3000;
+
+// Add metrics endpoint
+app.get("/metrics", async (req, res) => {
+  res.set("Content-Type", metrics.register.contentType);
+  res.end(await metrics.register.metrics());
+});
+
+// Update your request logging middleware to track metrics:
+app.use((req, res, next) => {
+  const start = Date.now();
+
+  res.on("finish", () => {
+    const duration = (Date.now() - start) / 1000;
+
+    // Record metrics
+    metrics.httpRequestDuration
+      .labels(req.method, req.path, res.statusCode)
+      .observe(duration);
+
+    metrics.httpRequestTotal.labels(req.method, req.path, res.statusCode).inc();
+
+    // Log
+    logger.info("HTTP Request", {
+      method: req.method,
+      path: req.path,
+      statusCode: res.statusCode,
+      duration: `${duration}s`,
+    });
+  });
+
+  next();
+});
 
 // Simple data store
 let items = [
@@ -16,14 +50,27 @@ let items = [
 
 // Routes
 app.get("/health", (req, res) => {
+  logger.debug("Health check called");
   res.json({ status: "OK", timestamp: new Date() });
 });
 
-app.get("/api/items", (req, res) => res.json(items));
+app.get("/api/items", (req, res) => {
+  logger.info("Fetching all items", { count: items.length });
+  res.json(items);
+});
 
 app.get("/api/items/:id", (req, res) => {
-  const item = items.find((i) => i.id === parseInt(req.params.id));
-  if (!item) return res.status(404).json({ error: "Item not found" });
+  const itemId = parseInt(req.params.id);
+  logger.info("Fetching item", { itemId });
+
+  const item = items.find((i) => i.id === itemId);
+
+  if (!item) {
+    logger.warn("Item not found", { itemId });
+    return res.status(404).json({ error: "Item not found" });
+  }
+
+  logger.info("Item found", { itemId, itemName: item.name });
   res.json(item);
 });
 
@@ -98,12 +145,12 @@ app.get("/api/storage/stats", async (req, res) => {
   }
 });
 
-console.log("CI/CD test");
+logger.info("CI/CD test");
 
 // 👇 Only start the server if app.js is run directly (not when required by Jest)
 if (require.main === module) {
   app.listen(port, () => {
-    console.log(`🚀 API running on http://localhost:${port}`);
+    logger.info("API started", { port });
   });
 }
 

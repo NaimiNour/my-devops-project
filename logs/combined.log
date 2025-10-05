@@ -1,0 +1,32 @@
+{"environment":"development","level":"info","message":"CI/CD test","service":"my-api","timestamp":"2025-10-05T13:03:34.250Z"}
+{"environment":"development","level":"info","message":"API started","port":"3000","service":"my-api","timestamp":"2025-10-05T13:03:34.260Z"}
+{"environment":"development","level":"info","message":"CI/CD test","service":"my-api","timestamp":"2025-10-05T13:07:39.352Z"}
+{"environment":"development","level":"info","message":"API started","port":"3000","service":"my-api","timestamp":"2025-10-05T13:07:39.365Z"}
+{"environment":"development","level":"info","message":"CI/CD test","service":"my-api","timestamp":"2025-10-05T13:08:21.991Z"}
+{"environment":"development","level":"info","message":"API started","port":"3000","service":"my-api","timestamp":"2025-10-05T13:08:22.003Z"}
+{"count":2,"environment":"development","level":"info","message":"Fetching all items","service":"my-api","timestamp":"2025-10-05T13:09:01.296Z"}
+{"environment":"development","itemId":999,"level":"info","message":"Fetching item","service":"my-api","timestamp":"2025-10-05T13:09:18.254Z"}
+{"environment":"development","itemId":999,"level":"warn","message":"Item not found","service":"my-api","timestamp":"2025-10-05T13:09:18.255Z"}
+{"environment":"development","level":"info","message":"CI/CD test","service":"my-api","timestamp":"2025-10-05T13:12:17.927Z"}
+{"environment":"development","level":"info","message":"API started","port":"3000","service":"my-api","timestamp":"2025-10-05T13:12:17.940Z"}
+{"environment":"development","itemId":999,"level":"info","message":"Fetching item","service":"my-api","timestamp":"2025-10-05T13:13:20.498Z"}
+{"environment":"development","itemId":999,"level":"warn","message":"Item not found","service":"my-api","timestamp":"2025-10-05T13:13:20.500Z"}
+{"duration":"14ms","environment":"development","level":"info","message":"HTTP Request","method":"GET","path":"/api/items/999","service":"my-api","statusCode":404,"timestamp":"2025-10-05T13:13:20.512Z","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36 Edg/141.0.0.0"}
+{"environment":"development","level":"info","message":"CI/CD test","service":"my-api","timestamp":"2025-10-05T13:16:28.620Z"}
+{"environment":"development","level":"info","message":"API started","port":"3000","service":"my-api","timestamp":"2025-10-05T13:16:28.634Z"}
+{"environment":"development","level":"info","message":"CI/CD test","service":"my-api","timestamp":"2025-10-05T13:25:45.419Z"}
+{"environment":"development","level":"info","message":"API started","port":"3000","service":"my-api","timestamp":"2025-10-05T13:25:45.438Z"}
+{"duration":"0.01s","environment":"development","level":"info","message":"HTTP Request","method":"GET","path":"/health","service":"my-api","statusCode":200,"timestamp":"2025-10-05T13:26:27.925Z"}
+{"duration":"0.001s","environment":"development","level":"info","message":"HTTP Request","method":"GET","path":"/health","service":"my-api","statusCode":200,"timestamp":"2025-10-05T13:26:32.106Z"}
+{"duration":"0.001s","environment":"development","level":"info","message":"HTTP Request","method":"GET","path":"/health","service":"my-api","statusCode":200,"timestamp":"2025-10-05T13:26:34.239Z"}
+{"duration":"0.001s","environment":"development","level":"info","message":"HTTP Request","method":"GET","path":"/health","service":"my-api","statusCode":200,"timestamp":"2025-10-05T13:26:36.350Z"}
+{"duration":"0.002s","environment":"development","level":"info","message":"HTTP Request","method":"GET","path":"/health","service":"my-api","statusCode":200,"timestamp":"2025-10-05T13:26:38.251Z"}
+{"duration":"0.001s","environment":"development","level":"info","message":"HTTP Request","method":"GET","path":"/health","service":"my-api","statusCode":200,"timestamp":"2025-10-05T13:26:41.467Z"}
+{"duration":"0.001s","environment":"development","level":"info","message":"HTTP Request","method":"GET","path":"/health","service":"my-api","statusCode":200,"timestamp":"2025-10-05T13:26:43.380Z"}
+{"duration":"0.002s","environment":"development","level":"info","message":"HTTP Request","method":"GET","path":"/health","service":"my-api","statusCode":200,"timestamp":"2025-10-05T13:26:45.738Z"}
+{"duration":"0.002s","environment":"development","level":"info","message":"HTTP Request","method":"GET","path":"/health","service":"my-api","statusCode":200,"timestamp":"2025-10-05T13:26:48.392Z"}
+{"duration":"0.001s","environment":"development","level":"info","message":"HTTP Request","method":"GET","path":"/health","service":"my-api","statusCode":200,"timestamp":"2025-10-05T13:26:50.549Z"}
+{"duration":"0.002s","environment":"development","level":"info","message":"HTTP Request","method":"GET","path":"/health","service":"my-api","statusCode":200,"timestamp":"2025-10-05T13:26:53.289Z"}
+{"duration":"0.002s","environment":"development","level":"info","message":"HTTP Request","method":"GET","path":"/health","service":"my-api","statusCode":200,"timestamp":"2025-10-05T13:26:57.589Z"}
+{"duration":"0.002s","environment":"development","level":"info","message":"HTTP Request","method":"GET","path":"/health","service":"my-api","statusCode":200,"timestamp":"2025-10-05T13:27:01.677Z"}
+{"duration":"0.001s","environment":"development","level":"info","message":"HTTP Request","method":"GET","path":"/health","service":"my-api","statusCode":200,"timestamp":"2025-10-05T13:27:06.312Z"}
