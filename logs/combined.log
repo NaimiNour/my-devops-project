@@ -30,3 +30,8 @@
 {"duration":"0.002s","environment":"development","level":"info","message":"HTTP Request","method":"GET","path":"/health","service":"my-api","statusCode":200,"timestamp":"2025-10-05T13:26:57.589Z"}
 {"duration":"0.002s","environment":"development","level":"info","message":"HTTP Request","method":"GET","path":"/health","service":"my-api","statusCode":200,"timestamp":"2025-10-05T13:27:01.677Z"}
 {"duration":"0.001s","environment":"development","level":"info","message":"HTTP Request","method":"GET","path":"/health","service":"my-api","statusCode":200,"timestamp":"2025-10-05T13:27:06.312Z"}
+{"environment":"development","level":"info","message":"CI/CD test","service":"my-api","timestamp":"2025-10-05T13:31:20.048Z"}
+{"environment":"development","level":"info","message":"API started","port":"3000","service":"my-api","timestamp":"2025-10-05T13:31:20.069Z"}
+{"environment":"development","level":"info","message":"CI/CD test","service":"my-api","timestamp":"2025-10-05T13:32:08.169Z"}
+{"environment":"development","level":"info","message":"API started","port":"3000","service":"my-api","timestamp":"2025-10-05T13:32:08.184Z"}
+{"duration":"0.003s","environment":"development","level":"info","message":"HTTP Request","method":"GET","path":"/health","service":"my-api","statusCode":200,"timestamp":"2025-10-05T13:32:47.248Z"}
