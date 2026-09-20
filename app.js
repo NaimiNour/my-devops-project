@@ -88,19 +88,26 @@ app.post("/api/items", (req, res) => {
 // B2 setup
 const upload = multer({ storage: multer.memoryStorage() });
 const b2 = new B2({
-  applicationKeyId: process.env.B2_KEY_ID || "your-key-id",
-  applicationKey: process.env.B2_KEY || "your-key",
+  applicationKeyId: process.env.B2_APP_KEY_ID,
+  applicationKey: process.env.B2_APP_KEY,
 });
 
 // File upload endpoint
 app.post("/api/items/:id/upload", upload.single("file"), async (req, res) => {
   try {
+    if (!req.file) {
+      return res.status(400).json({
+        error: "No file uploaded",
+        message: 'Please send a file using the "file" field',
+      });
+    }
+
     await b2.authorize();
 
     const bucketName = "LarvalStorage";
     const buckets = await b2.listBuckets();
     const bucket = buckets.data.buckets.find(
-      (b) => b.bucketName === bucketName
+      (b) => b.bucketName === bucketName,
     );
 
     if (!bucket) {
